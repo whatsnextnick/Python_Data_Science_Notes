@@ -84,11 +84,21 @@ carol_candies = 109
 
 #Complete the following block of code based on the doctstring
 
+#any method is key to solving this with list comprehension
 def menu_is_boring(meals):
     """Given a list of meals served over some period of time, return True if the
     same meal has ever been served two days in a row, and False otherwise.
     """
-    return [meal[meals.index(meal)] == meal[meals.index(meal)+1] for meal in meals]
+    return any(meals[meal] == meals[meal + 1] for meal in range(len(meals)-1))
+
+#Kaggle's solution:
+def menu_is_boring(meals):
+    # Iterate over all indices of the list, except the last one
+    for i in range(len(meals)-1):
+        if meals[i] == meals[i+1]:
+            return True
+    return False
+
  
 
 
