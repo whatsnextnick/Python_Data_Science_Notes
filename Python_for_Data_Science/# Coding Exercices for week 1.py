@@ -82,7 +82,14 @@ carol_candies = 109
 (alice_candies + bob_candies + carol_candies) % 3
 
 
+#Complete the following block of code based on the doctstring
 
+def menu_is_boring(meals):
+    """Given a list of meals served over some period of time, return True if the
+    same meal has ever been served two days in a row, and False otherwise.
+    """
+
+ 
 
 
 
