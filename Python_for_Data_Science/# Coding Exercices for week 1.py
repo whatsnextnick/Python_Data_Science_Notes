@@ -100,6 +100,39 @@ def menu_is_boring(meals):
     return False
 
  
+# In simplest terms, list comprehension is a concise way to create lists in Python. 
+# It's like a compact loop that generates items for a list, all in one line.
 
+#**Toygh one**
+#A researcher has gathered thousands of news articles. But she wants to focus her attention on articles including a specific word. Complete the function below to help her filter her list of articles.
+
+# The function should meet the following criteria:
+
+# Do not include documents where the keyword string shows up only as a part of a larger word. For example, if she were looking for the keyword “closed”, you would not include the string “enclosed.”
+# She does not want you to distinguish upper case from lower case letters. So the phrase “Closed the case.” would be included when the keyword is “closed”
+# Do not let periods or commas affect what is matched. “It is closed.” would be included when the keyword is “closed”. But you can assume there are no other types of punctuation.
+def word_search(doc_list, keyword):
+    """
+    Takes a list of documents (each document is a string) and a keyword. 
+    Returns list of the index values into the original list for all documents 
+    containing the keyword.
+
+    Example:
+    doc_list = ["The Learn Python Challenge Casino.", "They bought a car", "Casinoville"]
+    >>> word_search(doc_list, 'casino')
+    >>> [0]
+    """
+#     stringified_lst = ' '.join(doc_list)
+#     index_values = [doc_list.index(keyword.lower()) for word in doc_list if keyword.lower() in stringified_lst]
+#     return index_values
+#     lowcased_lst = [str_item.lower() for str_item in doc_list]
+#     index_value = [i for i, lstr_items in enumerate(lowcased_lst) if keyword.lower() in lowcased_lst]
+#     return index_value
+    
+    keyword = keyword.lower()  # Convert keyword to lowercase
+    # Convert each document in doc_list to lowercase and remove periods and commas
+    lowcased_lst = [str_item.lower().replace('.', '').replace(',', '') for str_item in doc_list]
+    index_values = [i for i, str_item in enumerate(lowcased_lst) if keyword in str_item.split()]
+    return index_values
 
 
